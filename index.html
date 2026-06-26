@@ -25,12 +25,25 @@
         <nav class="header-nav" aria-label="Primary navigation">
           <a href="#capability">Capability</a>
           <a href="#contact">Contact</a>
-          <button class="menu-button" type="button" aria-label="Open menu">
+          <button class="menu-button" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-menu">
             <span></span>
             <span></span>
           </button>
         </nav>
       </header>
+
+      <aside id="site-menu" class="menu-panel" aria-hidden="true">
+        <div class="menu-panel-inner">
+          <p class="section-kicker">Direct routing</p>
+          <a href="#capability"><span>01</span> Capability</a>
+          <a href="#approach"><span>02</span> Approach</a>
+          <a href="#contact"><span>03</span> Contact</a>
+          <div class="menu-contact">
+            <a href="mailto:jake@jakefieldhouse.co.uk">jake@jakefieldhouse.co.uk</a>
+            <a href="tel:+447404090458">07404 090458</a>
+          </div>
+        </div>
+      </aside>
 
       <main>
         <section class="hero" aria-labelledby="hero-title">
@@ -118,6 +131,18 @@
             <h3>Unclear problems</h3>
             <p>When a conversation reveals a technical need, I can help turn the messy version into a plan, prototype, fix, or useful next step.</p>
           </article>
+        </section>
+
+        <section id="approach" class="approach-section" aria-labelledby="approach-title">
+          <div class="approach-copy">
+            <p class="section-kicker">How to start</p>
+            <h2 id="approach-title">Start with signal, not a spec.</h2>
+          </div>
+          <div class="approach-list">
+            <p><span>01</span> Show me the messy version: the conversation, broken process, half-built idea, failed tool, or technical decision you need to make.</p>
+            <p><span>02</span> I will separate what is commercially useful from what is technically interesting, then choose the smallest serious move.</p>
+            <p><span>03</span> If it needs building, fixing, automating, documenting, testing, or explaining to someone non-technical, that is the work.</p>
+          </div>
         </section>
 
         <section id="contact" class="contact-section" aria-labelledby="contact-title">

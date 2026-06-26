@@ -35,6 +35,10 @@ body {
   background: var(--bg);
 }
 
+body.menu-open {
+  overflow: hidden;
+}
+
 body::selection {
   background: var(--lime);
   color: #050608;
@@ -64,7 +68,7 @@ img {
 .site-header {
   position: fixed;
   inset: 16px 16px auto;
-  z-index: 20;
+  z-index: 30;
   display: flex;
   justify-content: space-between;
   pointer-events: none;
@@ -77,7 +81,7 @@ img {
 .wordmark {
   display: grid;
   color: var(--ink);
-  font-size: clamp(1.52rem, 3.2vw, 3.15rem);
+  font-size: 2.45rem;
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.78;
@@ -122,6 +126,7 @@ img {
   position: relative;
   width: 54px;
   padding: 0;
+  transition: border-color 180ms ease, color 180ms ease, background 180ms ease;
 }
 
 .menu-button span {
@@ -129,6 +134,7 @@ img {
   width: 20px;
   height: 2px;
   background: currentColor;
+  transition: transform 180ms ease;
 }
 
 .menu-button span:first-child {
@@ -137,6 +143,96 @@ img {
 
 .menu-button span:last-child {
   transform: translateY(5px);
+}
+
+body.menu-open .menu-button {
+  border-color: var(--lime);
+  background: rgba(199, 255, 0, 0.12);
+  color: var(--lime);
+}
+
+body.menu-open .menu-button span:first-child {
+  transform: rotate(45deg);
+}
+
+body.menu-open .menu-button span:last-child {
+  transform: rotate(-45deg);
+}
+
+.menu-panel {
+  position: fixed;
+  inset: 0;
+  z-index: 22;
+  display: grid;
+  place-items: center;
+  padding: 104px 16px 32px;
+  background:
+    linear-gradient(116deg, rgba(5, 6, 8, 0.97), rgba(5, 6, 8, 0.88) 46%, rgba(15, 20, 26, 0.97)),
+    repeating-linear-gradient(90deg, rgba(248, 250, 252, 0.035) 0 1px, transparent 1px 44px);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(-12px);
+  transition: opacity 180ms ease, transform 180ms ease;
+  backdrop-filter: blur(28px);
+}
+
+body.menu-open .menu-panel {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.menu-panel-inner {
+  display: grid;
+  width: min(100%, 1180px);
+}
+
+.menu-panel-inner > a {
+  display: grid;
+  grid-template-columns: 58px 1fr;
+  align-items: center;
+  min-height: 118px;
+  border-bottom: 1px solid rgba(248, 250, 252, 0.18);
+  color: var(--ink);
+  font-size: 4.8rem;
+  font-weight: 950;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.menu-panel-inner > a:first-of-type {
+  border-top: 1px solid rgba(248, 250, 252, 0.18);
+}
+
+.menu-panel-inner span,
+.menu-contact a {
+  color: var(--lime);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.menu-panel-inner > a:hover,
+.menu-panel-inner > a:focus-visible {
+  color: var(--lime);
+}
+
+.menu-contact {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 18px;
+  justify-content: flex-end;
+  padding-top: 22px;
+}
+
+.menu-contact a {
+  color: rgba(248, 250, 252, 0.72);
+  text-transform: uppercase;
+}
+
+.menu-contact a:hover,
+.menu-contact a:focus-visible {
+  color: var(--cyan);
 }
 
 .hero {
@@ -323,7 +419,7 @@ img {
 .mask-piece span {
   position: relative;
   z-index: 1;
-  font-size: clamp(0.54rem, 0.8vw, 0.72rem);
+  font-size: 0.66rem;
   letter-spacing: 0.14em;
   opacity: 0.54;
 }
@@ -402,8 +498,13 @@ img {
   letter-spacing: 0.08em;
   text-transform: uppercase;
   transform: translate(-50%, -50%);
-  opacity: 0.48;
+  opacity: 0;
   border-radius: 50%;
+  transition: opacity 160ms ease;
+}
+
+body.has-pointer .cursor-lens {
+  opacity: 0.48;
 }
 
 .cursor-lens::before,
@@ -516,7 +617,7 @@ h1 {
 .intro-section h2,
 .contact-section h2 {
   margin: 0;
-  font-size: clamp(3.1rem, 8vw, 8.4rem);
+  font-size: 6.8rem;
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.84;
@@ -526,7 +627,7 @@ h1 {
 .intro-section p:last-child {
   margin: 0;
   color: var(--muted);
-  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  font-size: 1.14rem;
 }
 
 .capability-band {
@@ -556,14 +657,55 @@ h1 {
 .capability-band h3 {
   margin: 0 0 16px;
   color: var(--ink);
-  font-size: clamp(1.2rem, 2vw, 1.6rem);
+  font-size: 1.42rem;
   line-height: 1;
 }
 
 .capability-band p,
-.contact-section p {
+.contact-section p,
+.approach-list p {
   margin: 0;
   color: var(--muted);
+}
+
+.approach-section {
+  display: grid;
+  grid-template-columns: 0.7fr 1fr;
+  gap: clamp(28px, 7vw, 88px);
+  align-items: start;
+  width: min(100% - 32px, 1180px);
+  margin: 0 auto;
+  padding: 118px 0 28px;
+}
+
+.approach-copy h2 {
+  margin: 0;
+  max-width: 8ch;
+  color: var(--ink);
+  font-size: 4.1rem;
+  font-weight: 950;
+  letter-spacing: 0;
+  line-height: 0.88;
+  text-transform: uppercase;
+}
+
+.approach-list {
+  border-top: 1px solid rgba(248, 250, 252, 0.18);
+}
+
+.approach-list p {
+  display: grid;
+  grid-template-columns: 52px 1fr;
+  gap: 16px;
+  padding: 24px 0;
+  border-bottom: 1px solid rgba(248, 250, 252, 0.18);
+  font-size: 1.08rem;
+}
+
+.approach-list span {
+  color: var(--lime);
+  font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  font-size: 0.78rem;
 }
 
 .contact-section {
@@ -604,6 +746,12 @@ h1 {
   color: var(--lime);
 }
 
+@media (min-width: 1200px) {
+  .wordmark {
+    font-size: 3.15rem;
+  }
+}
+
 @media (max-width: 900px) {
   .header-nav a {
     display: none;
@@ -627,8 +775,19 @@ h1 {
   }
 
   .intro-section,
+  .approach-section,
   .contact-section {
     grid-template-columns: 1fr;
+  }
+
+  .intro-section h2,
+  .contact-section h2 {
+    font-size: 5.2rem;
+  }
+
+  .approach-copy h2 {
+    max-width: 12ch;
+    font-size: 3.7rem;
   }
 
   .capability-band {
@@ -654,13 +813,71 @@ h1 {
     min-height: 48px;
   }
 
+  .menu-panel {
+    padding-top: 88px;
+  }
+
+  .menu-panel-inner > a {
+    grid-template-columns: 42px 1fr;
+    min-height: 86px;
+    font-size: 2.85rem;
+  }
+
+  .menu-contact {
+    justify-content: flex-start;
+  }
+
   .portrait-base {
     width: 112vw;
     height: 82svh;
   }
 
   .portrait-base img {
-    transform: scale(1.48);
+    transform: translateY(-2svh) scale(1.48);
+  }
+
+  .portrait-reveal {
+    bottom: 0;
+    width: 112vw;
+    height: 82svh;
+    transform: translateX(-50%) translateY(-2svh) scale(1.48);
+  }
+
+  .brow {
+    top: 29svh;
+    width: 178px;
+  }
+
+  .mouth {
+    top: 48svh;
+    width: 216px;
+  }
+
+  .cheek {
+    top: 40svh;
+    margin-left: -104px;
+    width: 58px;
+  }
+
+  .jaw {
+    top: 58svh;
+    margin-left: 72px;
+    width: 112px;
+  }
+
+  .l1 {
+    top: 37svh;
+    width: 220px;
+  }
+
+  .l2 {
+    top: 44svh;
+    width: 250px;
+  }
+
+  .l3 {
+    top: 58svh;
+    width: 190px;
   }
 
   .hero-title-block {
@@ -702,7 +919,21 @@ h1 {
 
   .intro-section h2,
   .contact-section h2 {
-    font-size: clamp(3rem, 15vw, 5rem);
+    font-size: 3.7rem;
+  }
+
+  .approach-section {
+    padding-top: 82px;
+  }
+
+  .approach-copy h2 {
+    font-size: 3.1rem;
+  }
+
+  .approach-list p {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    font-size: 1rem;
   }
 }
 

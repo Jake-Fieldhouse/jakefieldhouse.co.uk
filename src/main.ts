@@ -10,6 +10,9 @@ type Point = {
 
 const canvas = document.querySelector<HTMLCanvasElement>('#signal-canvas')
 const context = canvas?.getContext('2d', { alpha: true })
+const menuButton = document.querySelector<HTMLButtonElement>('.menu-button')
+const menuPanel = document.querySelector<HTMLElement>('#site-menu')
+const menuLinks = menuPanel?.querySelectorAll<HTMLAnchorElement>('a')
 
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
 const points: Point[] = []
@@ -20,6 +23,7 @@ let targetX = 50
 let targetY = 47
 let currentX = 50
 let currentY = 47
+let hasPointer = false
 
 function resizeCanvas() {
   if (!canvas || !context) return
@@ -109,12 +113,41 @@ function boot() {
   draw()
   window.addEventListener('resize', resizeCanvas)
   window.addEventListener('pointermove', (event) => {
+    if (!hasPointer) {
+      hasPointer = true
+      document.body.classList.add('has-pointer')
+    }
+
     targetX = (event.clientX / window.innerWidth) * 100
     targetY = (event.clientY / window.innerHeight) * 100
   }, { passive: true })
 }
 
 boot()
+
+function setMenuOpen(isOpen: boolean) {
+  if (!menuButton || !menuPanel) return
+
+  document.body.classList.toggle('menu-open', isOpen)
+  menuButton.setAttribute('aria-expanded', String(isOpen))
+  menuButton.setAttribute('aria-label', isOpen ? 'Close menu' : 'Open menu')
+  menuPanel.setAttribute('aria-hidden', String(!isOpen))
+}
+
+menuButton?.addEventListener('click', () => {
+  const isOpen = menuButton.getAttribute('aria-expanded') === 'true'
+  setMenuOpen(!isOpen)
+})
+
+menuLinks?.forEach((link) => {
+  link.addEventListener('click', () => setMenuOpen(false))
+})
+
+window.addEventListener('keydown', (event) => {
+  if (event.key === 'Escape') {
+    setMenuOpen(false)
+  }
+})
 
 window.addEventListener('beforeunload', () => {
   window.cancelAnimationFrame(animationFrame)
