@@ -67,7 +67,7 @@ img {
 
 .site-header {
   position: fixed;
-  inset: 16px 16px auto;
+  inset: 28px 32px auto;
   z-index: 30;
   display: flex;
   justify-content: space-between;
@@ -81,7 +81,7 @@ img {
 .wordmark {
   display: grid;
   color: var(--ink);
-  font-size: 2.45rem;
+  font-size: 2.65rem;
   font-weight: 950;
   letter-spacing: 0;
   line-height: 0.78;
@@ -241,8 +241,8 @@ body.menu-open .menu-panel {
   min-height: 100svh;
   overflow: hidden;
   background:
-    radial-gradient(circle at var(--x) var(--y), rgba(199, 255, 0, 0.18), transparent 18rem),
-    radial-gradient(circle at 72% 45%, rgba(103, 255, 225, 0.12), transparent 27rem),
+    radial-gradient(circle at var(--x) var(--y), rgba(199, 255, 0, 0.14), transparent 18rem),
+    radial-gradient(circle at 72% 45%, rgba(103, 255, 225, 0.1), transparent 27rem),
     linear-gradient(180deg, #070a0e 0%, #050608 100%);
 }
 
@@ -274,12 +274,13 @@ body.menu-open .menu-panel {
   position: absolute;
   inset: 0;
   z-index: 1;
+  opacity: 0.68;
   pointer-events: none;
 }
 
 .terrain span {
   position: absolute;
-  border: 1px solid rgba(248, 250, 252, 0.12);
+  border: 1px solid rgba(248, 250, 252, 0.09);
   border-radius: 46% 54% 61% 39% / 42% 31% 69% 58%;
   transform: rotate(var(--r));
 }
@@ -327,7 +328,7 @@ body.menu-open .menu-panel {
 
 .portrait-base {
   position: relative;
-  width: clamp(430px, 50vw, 760px);
+  width: clamp(430px, 48vw, 760px);
   height: min(99svh, 890px);
   overflow: visible;
   filter:
@@ -345,7 +346,7 @@ body.menu-open .menu-panel {
   height: 100%;
   object-fit: contain;
   object-position: 50% 100%;
-  filter: saturate(0.58) contrast(1.16) brightness(0.72);
+  filter: saturate(0.62) contrast(1.14) brightness(0.78);
 }
 
 .mask-layer {
@@ -365,10 +366,10 @@ body.menu-open .menu-panel {
   height: min(101svh, 900px);
   object-fit: contain;
   object-position: 50% 100%;
-  filter: saturate(0.42) contrast(1.42) brightness(0.55) hue-rotate(2deg);
-  opacity: 0.46;
+  filter: saturate(0.38) contrast(1.22) brightness(0.66) hue-rotate(2deg);
+  opacity: 0.2;
   transform: translateX(-50%) scale(1.02);
-  clip-path: polygon(20% 25%, 84% 25%, 78% 43%, 24% 45%);
+  clip-path: polygon(16% 26%, 86% 26%, 82% 42%, 20% 43%);
 }
 
 .mask-piece,
@@ -383,7 +384,7 @@ body.menu-open .menu-panel {
   place-items: center;
   border: 1px solid rgba(248, 250, 252, 0.16);
   background:
-    linear-gradient(135deg, rgba(199, 255, 0, 0.82), rgba(103, 255, 225, 0.76) 52%, rgba(255, 61, 200, 0.78)),
+    linear-gradient(135deg, rgba(199, 255, 0, 0.72), rgba(103, 255, 225, 0.66) 52%, rgba(255, 61, 200, 0.68)),
     repeating-linear-gradient(90deg, rgba(5, 6, 8, 0.2) 0 1px, transparent 1px 12px);
   color: #050608;
   font-weight: 950;
@@ -392,6 +393,7 @@ body.menu-open .menu-panel {
     0 0 40px rgba(199, 255, 0, 0.14),
     inset 0 0 24px rgba(248, 250, 252, 0.2);
   mix-blend-mode: normal;
+  backdrop-filter: blur(4px);
   overflow: hidden;
 }
 
@@ -444,7 +446,7 @@ body.menu-open .menu-panel {
   width: min(6.8vw, 88px);
   height: 5.4svh;
   clip-path: polygon(0 0, 100% 12%, 88% 100%, 8% 82%);
-  background: linear-gradient(135deg, rgba(255, 61, 200, 0.92), rgba(199, 255, 0, 0.9));
+  background: linear-gradient(135deg, rgba(255, 61, 200, 0.68), rgba(199, 255, 0, 0.64));
 }
 
 .jaw {
@@ -453,8 +455,8 @@ body.menu-open .menu-panel {
   width: min(11vw, 146px);
   height: 9svh;
   clip-path: polygon(5% 0, 100% 14%, 74% 100%, 0 76%);
-  background: rgba(103, 255, 225, 0.2);
-  border-color: rgba(103, 255, 225, 0.75);
+  background: rgba(103, 255, 225, 0.14);
+  border-color: rgba(103, 255, 225, 0.52);
 }
 
 .mask-line {
@@ -528,7 +530,7 @@ body.has-pointer .cursor-lens {
 
 .hero-title-block {
   position: absolute;
-  left: 16px;
+  left: 32px;
   top: 22svh;
   z-index: 9;
   max-width: 20rem;
@@ -578,12 +580,12 @@ h1 {
 }
 
 .left-card {
-  left: 16px;
+  left: 32px;
   bottom: 92px;
 }
 
 .right-card {
-  right: 16px;
+  right: 32px;
   bottom: 92px;
   width: 156px;
 }
