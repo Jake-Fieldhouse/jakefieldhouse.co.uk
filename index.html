@@ -9,7 +9,7 @@
     <meta property="og:description" content="Technical capability for useful, valuable, real-world problems." />
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://jakefieldhouse.co.uk/" />
-    <meta property="og:image" content="https://jakefieldhouse.co.uk/images/jake-fieldhouse.jpg" />
+    <meta property="og:image" content="https://jakefieldhouse.co.uk/images/jake-bust-clean.webp" />
     <link rel="icon" href="favicon.ico" />
     <link rel="apple-touch-icon" href="images/apple-touch-icon.png" />
     <title>Jake Fieldhouse</title>
@@ -18,109 +18,112 @@
     <canvas id="signal-canvas" aria-hidden="true"></canvas>
     <div id="app">
       <header class="site-header" aria-label="Site header">
-        <a class="brand-mark" href="/" aria-label="Jake Fieldhouse home">
-          <span>JF</span>
+        <a class="wordmark" href="/" aria-label="Jake Fieldhouse home">
+          <span>Jake</span>
+          <span>Fieldhouse</span>
         </a>
         <nav class="header-nav" aria-label="Primary navigation">
           <a href="#capability">Capability</a>
-          <a href="#proof">Signal</a>
           <a href="#contact">Contact</a>
+          <button class="menu-button" type="button" aria-label="Open menu">
+            <span></span>
+            <span></span>
+          </button>
         </nav>
       </header>
 
       <main>
         <section class="hero" aria-labelledby="hero-title">
-          <div class="hero-copy">
-            <p class="eyebrow">Hull based. UK available. Direct to the person doing the work.</p>
+          <div class="terrain" aria-hidden="true">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+
+          <div class="hero-title-block">
+            <p>Technical operator</p>
             <h1 id="hero-title">Jake Fieldhouse</h1>
-            <p class="hero-line">
-              Technical capability for useful, valuable, real-world problems.
-            </p>
-            <p class="hero-detail">
-              I work across AI workflows, automation, systems, hardware-aware troubleshooting, and practical implementation for people and businesses who need a capable technical operator.
-            </p>
-            <div class="hero-actions" aria-label="Primary contact actions">
-              <a class="button primary" href="mailto:jake@jakefieldhouse.co.uk">Start a conversation</a>
-              <a class="button ghost" href="tel:+447404090458">07404 090458</a>
+          </div>
+
+          <div class="hero-meta left-card" aria-label="Primary capability">
+            <span>Current signal</span>
+            <strong>AI systems</strong>
+            <strong>Automation</strong>
+            <strong>Hardware judgment</strong>
+          </div>
+
+          <div class="hero-meta right-card" aria-label="Contact summary">
+            <span>Business line</span>
+            <a href="tel:+447404090458">07404 090458</a>
+            <a href="mailto:jake@jakefieldhouse.co.uk">Email Jake</a>
+          </div>
+
+          <div class="portrait-composition" aria-label="Portrait of Jake Fieldhouse with cursor-revealed technical mask">
+            <picture class="portrait-base">
+              <img src="images/jake-bust-clean.webp" alt="Jake Fieldhouse" />
+            </picture>
+
+            <div class="mask-layer" aria-hidden="true">
+              <img class="portrait-reveal" src="images/jake-reveal-clean.webp" alt="" />
+              <div class="mask-piece brow">
+                <span>JF</span>
+              </div>
+              <div class="mask-piece mouth">
+                <span>FIELDHOUSE</span>
+              </div>
+              <div class="mask-piece cheek">
+                <span></span>
+              </div>
+              <div class="mask-piece jaw"></div>
+              <div class="mask-line l1"></div>
+              <div class="mask-line l2"></div>
+              <div class="mask-line l3"></div>
+            </div>
+
+            <div class="cursor-lens" aria-hidden="true">
+              <span></span>
             </div>
           </div>
 
-          <div class="identity-stage" aria-label="Portrait of Jake Fieldhouse with animated technical mask">
-            <div class="portrait-shell">
-              <picture>
-                <source srcset="images/jake-fieldhouse.avif" type="image/avif" />
-                <img src="images/jake-fieldhouse.jpg" alt="Jake Fieldhouse" />
-              </picture>
-              <div class="portrait-tone"></div>
-              <div class="scan-mask" aria-hidden="true"></div>
-              <div class="wire-mask" aria-hidden="true">
-                <span class="node n1"></span>
-                <span class="node n2"></span>
-                <span class="node n3"></span>
-                <span class="node n4"></span>
-                <span class="node n5"></span>
-              </div>
-              <div class="readout readout-top" aria-hidden="true">IDENTITY // HUMAN IN LOOP</div>
-              <div class="readout readout-bottom" aria-hidden="true">AI + SYSTEMS + HARDWARE</div>
-            </div>
-          </div>
+          <a class="scroll-cue" href="#capability">Explore capability</a>
         </section>
 
-        <section id="capability" class="section capability-grid" aria-labelledby="capability-title">
-          <div class="section-heading">
-            <p class="eyebrow">Capability map</p>
-            <h2 id="capability-title">Broad by design. Useful by default.</h2>
-          </div>
+        <section id="capability" class="section intro-section" aria-labelledby="capability-title">
+          <p class="section-kicker">What this is</p>
+          <h2 id="capability-title">A public signal for broad technical capability, not a narrow menu of services.</h2>
+          <p>
+            I work best where the need is real but the shape is not yet neat: AI workflows, small business systems, automation, hardware-aware troubleshooting, technical decisions, and practical implementation.
+          </p>
+        </section>
+
+        <section class="capability-band" aria-label="Capability areas">
           <article>
             <span>01</span>
             <h3>AI and workflow leverage</h3>
-            <p>Turning current AI tools into useful business workflows, internal assistants, automation, documentation, and decision support.</p>
+            <p>Useful AI adoption, internal assistants, prompt systems, documentation flows, and automation that reduces operational drag.</p>
           </article>
           <article>
             <span>02</span>
             <h3>Systems and operations</h3>
-            <p>Practical help with Microsoft 365, devices, security basics, automation, process cleanup, technical choices, and small business infrastructure.</p>
+            <p>Microsoft 365, device estates, security basics, cloud choices, process cleanup, and small-business technical execution.</p>
           </article>
           <article>
             <span>03</span>
             <h3>Hardware-level judgment</h3>
-            <p>Years of repair and component-level fault finding means I understand the physical layer, not just the software interface.</p>
+            <p>Repair bench experience changes the way technical problems are diagnosed: physical layer, failure mode, cost, and practicality.</p>
           </article>
           <article>
             <span>04</span>
-            <h3>Unclear technical problems</h3>
-            <p>Useful when the problem is awkward, cross-domain, commercially annoying, or not yet shaped into a neat brief.</p>
+            <h3>Unclear problems</h3>
+            <p>When a conversation reveals a technical need, I can help turn the messy version into a plan, prototype, fix, or useful next step.</p>
           </article>
-        </section>
-
-        <section id="proof" class="section signal-section" aria-labelledby="proof-title">
-          <div class="section-heading">
-            <p class="eyebrow">Operating signal</p>
-            <h2 id="proof-title">The pitch is simple: talk to the person who can reason through it.</h2>
-          </div>
-          <div class="signal-list">
-            <div>
-              <strong>Hands-on technical range</strong>
-              <p>From enterprise environments and business IT to repair benches, automation, AI, and client-facing problem solving.</p>
-            </div>
-            <div>
-              <strong>Commercially grounded</strong>
-              <p>The goal is not novelty. The goal is reducing friction, saving time, improving decisions, or making something valuable work.</p>
-            </div>
-            <div>
-              <strong>Direct communication</strong>
-              <p>No sales layer. No vague account management. If the fit is right, you speak with the person doing the technical thinking.</p>
-            </div>
-          </div>
         </section>
 
         <section id="contact" class="contact-section" aria-labelledby="contact-title">
           <div>
-            <p class="eyebrow">Open channel</p>
+            <p class="section-kicker">Open channel</p>
             <h2 id="contact-title">Bring the messy version of the problem.</h2>
-            <p>
-              If there is a technical need hiding inside a conversation, send the context. I can help shape it into a plan, a prototype, a fix, or a useful next step.
-            </p>
           </div>
           <div class="contact-actions">
             <a href="mailto:jake@jakefieldhouse.co.uk">jake@jakefieldhouse.co.uk</a>

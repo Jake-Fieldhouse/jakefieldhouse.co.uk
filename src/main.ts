@@ -16,6 +16,10 @@ const points: Point[] = []
 let width = 0
 let height = 0
 let animationFrame = 0
+let targetX = 50
+let targetY = 47
+let currentX = 50
+let currentY = 47
 
 function resizeCanvas() {
   if (!canvas || !context) return
@@ -48,6 +52,11 @@ function seedPoints() {
 
 function draw() {
   if (!context) return
+
+  currentX += (targetX - currentX) * 0.16
+  currentY += (targetY - currentY) * 0.16
+  document.documentElement.style.setProperty('--x', `${currentX}%`)
+  document.documentElement.style.setProperty('--y', `${currentY}%`)
 
   context.clearRect(0, 0, width, height)
   context.fillStyle = 'rgba(5, 6, 8, 0.22)'
@@ -99,6 +108,10 @@ function boot() {
   resizeCanvas()
   draw()
   window.addEventListener('resize', resizeCanvas)
+  window.addEventListener('pointermove', (event) => {
+    targetX = (event.clientX / window.innerWidth) * 100
+    targetY = (event.clientY / window.innerHeight) * 100
+  }, { passive: true })
 }
 
 boot()
